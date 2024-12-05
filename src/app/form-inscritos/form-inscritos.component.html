@@ -1,0 +1,103 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-body">
+      <h4>Inscritos</h4>
+      <form (ngSubmit)="onSubmit()" #form="ngForm">
+        <div class="container mt-4">
+          <div class="row g-3">
+            <!-- Código -->
+            <div class="col-md-2 col-12">
+              <label for="code" class="form-label">Codigo:</label>
+            </div>
+            <div class="col-md-10 col-12">
+              <input type="text" id="code" [(ngModel)]="formData.code" name="code" class="form-control" placeholder="Digite o código" required>
+            </div>
+
+            <!-- Nome -->
+            <div class="col-md-2 col-12">
+              <label for="name" class="form-label">Nome:</label>
+            </div>
+            <div class="col-md-10 col-12">
+              <input type="text" id="name" [(ngModel)]="formData.name" name="name" class="form-control" placeholder="Digite o nome" required>
+            </div>
+
+            <!-- Email -->
+            <div class="col-md-2 col-12">
+              <label for="email" class="form-label">Email:</label>
+            </div>
+            <div class="col-md-10 col-12">
+              <input type="email" id="email" [(ngModel)]="formData.email" name="email" class="form-control" placeholder="Digite o email" required>
+            </div>
+
+            <!-- Senha -->
+            <div class="col-md-2 col-12">
+              <label for="password" class="form-label">Senha:</label>
+            </div>
+            <div class="col-md-10 col-12">
+              <input type="password" id="password" [(ngModel)]="formData.password" name="password" class="form-control" placeholder="Digite a senha" required>
+            </div>
+
+            <!-- Documento -->
+            <div class="col-md-2 col-12">
+              <label for="document" class="form-label">Documento:</label>
+            </div>
+            <div class="col-md-10 col-12">
+              <input type="text" id="document" [(ngModel)]="formData.document" name="document" class="form-control" placeholder="Digite o documento">
+            </div>
+
+            <!-- enrollmentGroup -->
+            <div class="col-md-2 col-12">
+              <label for="enrollmentGroup" class="form-label">Grupo:</label>
+            </div>
+            <div class="col-md-10 col-12">
+              <input type="text" id="enrollmentGroup" [(ngModel)]="formData.enrollmentGroup" name="enrollmentGroup" class="form-control" placeholder="Digite o enrollmentGroup">
+            </div>
+
+            <!-- Observações -->
+            <div class="col-md-2 col-12">
+              <label for="observation" class="form-label">Obs:</label>
+            </div>
+            <div class="col-md-10 col-12">
+              <textarea id="observation" [(ngModel)]="formData.observation" name="obs" class="form-control" rows="4" placeholder="Escreva observações"></textarea>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary me-2">Salvar</button>
+        <button type="button" class="btn btn-secondary" (click)="resetForm()">Cancelar</button>
+
+      </form>
+    </div>
+  </div>
+  <!-- Tabela para exibir os dados -->
+  <div class="mt-4">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Documento</th>
+        <th>Grupo</th>
+        <th>Ações</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of inscritos; let i = index">
+        <td>{{ item.code }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.document }}</td>
+        <td>{{ item.enrollmentGroup }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm me-2" (click)="editItem(i)">
+            Editar
+          </button>
+          <button class="btn btn-danger btn-sm" (click)="deleteItem(i)">
+            Deletar
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+.card {
+  border: solid 10px #000000;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #efefef;
+}
+
+input, textarea {
+  background-color: #fdf0aa;
+  border: 1px solid #000000;
+  color: black;
+}
+
+input::placeholder, textarea::placeholder {
+  color: black;
+}
+
+textarea {
+  resize: none;
+  height: 300px;
+}
+
+input{
+  width: 50%;
+}
+
+/*media query para op input voltar a 100% width quando em telas menores*/
+@media (max-width: 768px) {
+  input{
+    width: 100%;
+  }
+}
